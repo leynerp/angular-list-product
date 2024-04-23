@@ -1,3 +1,71 @@
+  <head class="mt-4 flex flex-col w-full items-center justify-center">
+    <article class="w-4/6 relative">
+      <div
+        class="flex items-center mx-auto w-2/5 h-10 bg-slate-300/50 rounded-lg"
+      >
+        <button>
+          <svg
+            viewBox="0 0 24 24"
+            height="24"
+            width="24"
+            class
+            preserveAspectRatio="xMidYMid meet"
+            class="text-slate-500"
+            version="1.1"
+            x="0px"
+            y="0px"
+            enable-background="new 0 0 24 24"
+          >
+            <title>search</title>
+            <path
+              fill="currentColor"
+              d="M15.009,13.805h-0.636l-0.22-0.219c0.781-0.911,1.256-2.092,1.256-3.386 c0-2.876-2.332-5.207-5.207-5.207c-2.876,0-5.208,2.331-5.208,5.207s2.331,5.208,5.208,5.208c1.293,0,2.474-0.474,3.385-1.255 l0.221,0.22v0.635l4.004,3.999l1.194-1.195L15.009,13.805z M10.201,13.805c-1.991,0-3.605-1.614-3.605-3.605 s1.614-3.605,3.605-3.605s3.605,1.614,3.605,3.605S12.192,13.805,10.201,13.805z"
+            ></path>
+          </svg>
+        </button>
+
+        <input
+          type="text"  
+           [(ngModel)]="searchValue"      
+          (keyup)="onChangeSearch(getValue($event))"        
+          class="w-full outline-none bg-transparent p-2 ps-2 text-sm text-gray-900"
+          placeholder="write a search criteria...."
+        />
+        <button (click)="clearSearch()" *ngIf="searchValue!=null && searchValue!=''">
+          <svg
+            viewBox="0 0 24 24"
+            height="24"
+            width="24"
+            preserveAspectRatio="xMidYMid meet"
+            class="text-slate-500"
+            version="1.1"
+            x="0px"
+            y="0px"
+            enable-background="new 0 0 24 24"
+          >
+            <title>clear search</title>
+            <path
+              fill="currentColor"
+              d="M17.25,7.8L16.2,6.75l-4.2,4.2l-4.2-4.2L6.75,7.8l4.2,4.2l-4.2,4.2l1.05,1.05l4.2-4.2l4.2,4.2l1.05-1.05 l-4.2-4.2L17.25,7.8z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <ng-template #notResult>
+        <div class="flex flex-col gap-y-4 items-center justify-center">
+          <p>Your search did not match any pokemonts</p>
+          <p><strong>Suggestions:</strong></p>
+          <ul class="list-disc">
+            <li>Make sure that all words are spelled correctly.</li>
+            <li>Try different keywords.</li>
+            <li>Try more general keywords.</li>
+            <li>Try fewer keywords.</li>
+          </ul>
+        </div>
+      </ng-template>
+    </article>   
+ </head>
 
 <main class="pt-6" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">

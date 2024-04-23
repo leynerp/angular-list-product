@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Input, inject } from '@angular/core';
-import { ColorPipe } from 'src/app/pipes/color.pipe';
 import { SelectElementsService } from 'src/app/service/select-elements.service';
+import { ColorPipe } from '../pipes/color.pipe';
 
 @Component({
   selector: 'app-item-card',
