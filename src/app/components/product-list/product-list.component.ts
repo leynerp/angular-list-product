@@ -42,15 +42,12 @@ export class ProductListComponent implements OnInit {
   constructor() {
     effect(() => {
       const id = this.selectedService.selected();
-      if (id) this.route.navigate([`/details/${id}`]);
-
-      //
+      if (id) this.route.navigate([`/details/${id}`]);    
       this.selectedService.selected();
     });
   }
   ngOnInit(): void {
     this.getProductData();
-    //TODO review linter
     const $textSearch = this.searchText$.pipe(debounceTime(500), distinctUntilChanged());
     $textSearch.subscribe((value) => {
       if (value.length === 0) {
