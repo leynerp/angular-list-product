@@ -1,0 +1,7 @@
+
+<main class="pt-6" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">
+ <app-item-list [productList]="productList"></app-item-list>
+</main>
+
+<!-- <app-it-list [list]="productList"></app-it-list> -->

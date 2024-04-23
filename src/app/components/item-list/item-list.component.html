@@ -1,0 +1,19 @@
+   <section>
+      <div class="flex gap-2">
+        <section class="w-full">
+          <article
+            class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-1"
+          >
+            <app-item-card             
+              *ngFor="let item of productList()" 
+              [name]="item.name"            
+              [image]="item.image"            
+              [price]="item.price"            
+              [color]="item.color"            
+              [badgeStyle]="item.badgeStyle"            
+            ></app-item-card>
+          </article>
+        </section>
+      
+      </div>
+    </section>
