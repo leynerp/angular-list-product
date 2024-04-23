@@ -1,8 +1,8 @@
 export interface ProductResponse {
   products: Product[];
-  totalElements:number,
-  next:boolean,
-  prev:boolean
+  totalElements: number;
+  next: boolean;
+  prev: boolean;
 }
 
 export interface Product {
@@ -11,16 +11,16 @@ export interface Product {
   price: number;
   image: string;
   badgeStyle: string;
-  color:string;
-  productDetails: ProductDetails;
+  color: string;
 }
 export interface ProductDetails {
-  salePrice: number
-  gender: Gender
-  images: string[]
-  link: string
-  previewTo: Date
-  discountText: string
+  id: string;
+  salePrice: number;
+  gender: Gender;
+  images: string[];
+  link: string;
+  previewTo: Date;
+  discountText: string;
 }
 
 export enum Gender {
