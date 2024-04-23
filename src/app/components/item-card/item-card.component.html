@@ -1,12 +1,12 @@
 <div class="h-full  rounded overflow-hidden shadow-lg">
   <div class="relative">
     <img class="w-full object-cover" src="{{ image }}" alt="Img" />
-    <div
+    <div (click)="handlerOnClick($event)" id="{{id}}"
       class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"
     ></div>
 
-    <div
-      class="absolute  bottom-0 left-0 bg-indigo-600 px-2 py-1 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out"
+    <div  
+      class="absolute bottom-0 left-0 bg-indigo-600 px-2 py-1 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out"
     >
       {{price | currency}}
     </div>

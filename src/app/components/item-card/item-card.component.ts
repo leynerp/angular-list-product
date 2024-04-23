@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ColorPipe } from '../pipes/color.pipe';
+import { ChangeDetectionStrategy, Component, Inject, Input, inject } from '@angular/core';
+import { ColorPipe } from 'src/app/pipes/color.pipe';
+import { SelectElementsService } from 'src/app/service/select-elements.service';
 
 @Component({
   selector: 'app-item-card',
@@ -10,13 +11,15 @@ import { ColorPipe } from '../pipes/color.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItemCardComponent {
+  private selectedService = inject(SelectElementsService);
   @Input() name!: string;
+  @Input() id!: string;
   @Input() image!: string;
   @Input() color!: string;
   @Input() badgeStyle!: string;
   @Input() price!: number;
-  selectElement(arg0: ItemCardComponent) {
-    throw new Error('Method not implemented.');
+  handlerOnClick($event: MouseEvent) {
+    const { id } = $event.target as HTMLDivElement;
+    this.selectedService.changeSelected(id);
   }
-  
 }
