@@ -51,8 +51,8 @@ export const getDetailsProductById = (
       gender,
       images: productImage,
       link,
-      previewTo: new Date(previewTo),
-      discountText,
+      previewTo: previewTo ? new Date(previewTo) : new Date(),
+      discountText: discountText ?? '-'
     };
   }
   return null;

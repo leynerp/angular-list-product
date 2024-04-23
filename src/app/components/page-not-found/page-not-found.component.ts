@@ -8,12 +8,7 @@ import { map, shareReplay, takeWhile, tap, timer } from 'rxjs';
   selector: 'app-page-not-found',
   standalone: true,
   imports: [AsyncPipe],
-  template: `
-    <div>
-      <h2>Page not found</h2>
-      <p>Return home after {{ countDown$ | async }} seconds</p>
-    </div>
-  `,
+  templateUrl: './page-not-found.component.html',
 })
 export class PageNotFoundComponent implements OnInit {
   private routeInjector = inject(Router);

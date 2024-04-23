@@ -26,10 +26,6 @@ export class ProductsDetailsComponent implements OnInit {
   private routeActive = inject(ActivatedRoute);
   private productService = inject(ProductsService);
   private selectedService = inject(SelectElementsService);
-  //TODO not found details
-  //TODO validate date
-  //TODO change icons
-  //TODO resonsive de details
   private productFound: boolean = true;
   private route = inject(Router);
 
@@ -42,11 +38,17 @@ export class ProductsDetailsComponent implements OnInit {
       )
       .subscribe((value) => {
         this.productFound = !!value;
-        if (value != null) this.productDetails.set(value);
+        if (value != null){
+          this.productDetails.set(value);
+        }else{
+           this.selectedService.changeSelected('');
+           this.route.navigate(['/not-found']);
+        }
+          
       });
   }
   handlerGoHome() {
-       this.selectedService.changeSelected('');
+      this.selectedService.changeSelected('');
       this.route.navigate(['/list']);
   }
 }
