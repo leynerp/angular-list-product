@@ -6,6 +6,7 @@
           >
             <app-item-card             
               *ngFor="let item of productList()" 
+              [id]="item.id"            
               [name]="item.name"            
               [image]="item.image"            
               [price]="item.price"            
